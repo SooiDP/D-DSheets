@@ -2,11 +2,11 @@
     <h2>{{character.race}} {{character.class}} {{character.level}} character details</h2>
     <div><label>id: </label>{{character.id}}</div>
     <div>
-        <label>name: </label>
-        <input [(ngModel)]="character.name" placeholder="name">
+        <label>name: </label>{{character.name}}
     </div>
     <div>
         <label>level: </label>
         <input [(ngModel)]="character.level" placeholder="level">
     </div>
+    <button (click)="goBack()">Back</button>
 </div>
