@@ -2,11 +2,21 @@
     <h2>{{character.race}} {{character.class}} {{character.level}} character details</h2>
     <div><label>id: </label>{{character.id}}</div>
     <div>
-        <label>name: </label>{{character.name}}
+        <label>Race: </label>{{character.race}}
+    </div>
+    <div>
+        <label>Sub race: </label>{{character.subRace}}
+    </div>
+    <div>
+        <label>Class: </label>{{character.class}}
+    </div>
+    <div>
+        <label>Name: </label>{{character.name}}
     </div>
     <div>
         <label>level: </label>
         <input [(ngModel)]="character.level" placeholder="level">
     </div>
     <button (click)="goBack()">Back</button>
+    <button (click)="save()">Save</button>
 </div>

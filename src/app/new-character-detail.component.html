@@ -1,0 +1,25 @@
+<div>
+    <h2>New Character Creation</h2>
+    <div>
+        <label>race: </label>
+        <input #race placeholder="race">
+    </div>
+    <div>
+        <label>subrace: </label>
+        <input #subRace placeholder="sub race">
+    </div>
+    <div>
+        <label>class: </label>
+        <input #charClass placeholder="class">
+    </div>
+    <div>
+        <label>name: </label>
+        <input #name placeholder="name">
+    </div>
+    <div>
+        <label>level: </label>
+        <input #level placeholder="level">
+    </div>
+    <button (click)="goBack()">Back</button>
+    <button (click)="save(race.value, subRace.value, charClass.value, name.value, level.value)">Create</button>
+</div>

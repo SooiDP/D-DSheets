@@ -1,7 +1,13 @@
 <h2>My Characters</h2>
+<div>
+  <button (click)="add()">
+    Add a character
+  </button>
+</div>
 <ul class="characters">
   <li *ngFor="let character of characters" (click)="onSelect(character)" [class.selected]="character === selectedCharacter">
-    <span class="badge">{{character.id}}</span> {{character.name}} {{character.class}} {{character.level}}
+      <span class="badge">{{character.id}}</span> {{character.name}} {{character.class}} {{character.level}}
+      <button class="delete" (click)="delete(character); $event.stopPropagation()">x</button>
   </li>
 </ul>
 <div *ngIf="selectedCharacter">

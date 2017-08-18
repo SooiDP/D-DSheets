@@ -8,32 +8,26 @@ import { CharacterService } from './character.service';
 import 'rxjs/add/operator/switchMap';
 
 @Component({
-    selector: 'character-detail',
-    templateUrl: './character-detail.component.html',
-    styleUrls:['./character-detail.component.css']
+    selector: 'new-character-detail',
+    templateUrl: './new-character-detail.component.html',
+    styleUrls: ['./character-detail.component.css']
 })
 
-export class CharacterDetailComponent implements OnInit {
+export class NewCharacterDetailComponent {
     character: Character;
 
-    constructor( 
+    constructor(
         private characterService: CharacterService,
         private route: ActivatedRoute,
         private location: Location
     ) { }
 
-    ngOnInit(): void {
-        this.route.paramMap
-            .switchMap((params: ParamMap) => this.characterService.getCharacter(+params.get('id')))
-            .subscribe(character => this.character = character);
-    }
-
     goBack(): void {
         this.location.back();
     }
 
-    save(): void {
-        this.characterService.update(this.character)
+    save(race: string, subRace: string, charClass: string, name: string, level: number): void {
+        this.characterService.create(race, subRace, charClass, name, level)
             .then(() => this.goBack());
     }
 }
