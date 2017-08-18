@@ -5,5 +5,4 @@ export class Character {
     name: string;
     class: string;
     level: number;
-    status: boolean;
   }
