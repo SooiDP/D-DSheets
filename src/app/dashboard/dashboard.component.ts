@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Character } from './character';
-import { CharacterService } from './character.service';
+import { CharacterService, Character } from '../shared';
 
 @Component({
     selector: 'my-dashboard',

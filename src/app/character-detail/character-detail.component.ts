@@ -2,8 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Character } from './character';
-import { CharacterService } from './character.service';
+import { CharacterService, Character } from '../shared';
 
 import 'rxjs/add/operator/switchMap';
 

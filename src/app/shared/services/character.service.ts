@@ -3,13 +3,14 @@ import { Headers, Http } from '@angular/http';
 
 import 'rxjs/add/operator/toPromise';
 
-import { Character } from './character';
-import { CHARACTERS } from './mock-characters';
+import { ApiService } from './api.service';
+import { Character } from '../models';
 
 @Injectable()
 export class CharacterService {
 
-    private charactersUrl = 'api/characters' //URL to web API
+    //private charactersUrl = 'api/characters' //URL to web API
+    private charactersUrl = 'http://localhost:3000/api/characters' //URL to web API
     private headers = new Headers({ 'Content-Type': 'application/json' });
 
     constructor(private http: Http) { }

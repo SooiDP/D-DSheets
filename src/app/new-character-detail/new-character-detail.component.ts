@@ -2,15 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
 import { Location } from '@angular/common';
 
-import { Character } from './character';
-import { CharacterService } from './character.service';
+import { CharacterService, Character } from '../shared';
 
 import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'new-character-detail',
     templateUrl: './new-character-detail.component.html',
-    styleUrls: ['./character-detail.component.css']
+    styleUrls: ['../character-detail/character-detail.component.css']
 })
 
 export class NewCharacterDetailComponent {

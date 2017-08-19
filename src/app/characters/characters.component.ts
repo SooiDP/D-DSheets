@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
-import { Character } from './character';
-import { CharacterService } from './character.service';
-import { AppComponent } from './app.component';
+import { CharacterService, Character } from '../shared';
+import { AppComponent } from '../app.component';
 
 @Component({
   selector: 'my-characters',

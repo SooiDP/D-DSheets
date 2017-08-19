@@ -1,14 +1,17 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { DashboardComponent } from './dashboard.component';
-import { CharactersComponent } from './characters.component';
-import { CharacterDetailComponent } from './character-detail.component';
-import { NewCharacterDetailComponent } from './new-character-detail.component';
+import { DashboardComponent } from './dashboard/dashboard.component';
+import { CharactersComponent } from './characters/characters.component';
+import { CharacterDetailComponent } from './character-detail/character-detail.component';
+import { NewCharacterDetailComponent } from './new-character-detail/new-character-detail.component';
+import { AuthComponent } from './auth/auth.component';
+import { NoAuthGuard } from './auth/no-auth-guard.service';
+import { AuthMenuComponent } from './auth-menu/auth-menu.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/dashboard',
+        redirectTo: '/auth',
         pathMatch: 'full'
     },
     {
@@ -26,6 +29,18 @@ const routes: Routes = [
     {
         path: 'character/new',
         component: NewCharacterDetailComponent
+    },
+    {
+        path: 'auth',
+        component: AuthMenuComponent
+    },
+    {
+        path: 'auth/login',
+        component: AuthComponent
+    },
+    {
+        path: 'auth/register',
+        component: AuthComponent
     }
 ];
 
@@ -33,4 +48,5 @@ const routes: Routes = [
     imports: [RouterModule.forRoot(routes)],
     exports: [RouterModule]
 })
-export class AppRoutingModule {}
+
+export class AppRoutingModule { }
