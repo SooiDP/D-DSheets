@@ -10,6 +10,7 @@ import { AuthMenuModule } from './auth-menu/auth-menu.module'
 import { CharacterDetailModule } from './character-detail/character-detail.module';
 import { CharactersModule } from './characters/characters.module';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { HomeModule } from './home/home.module';
 import { NewCharacterDetailComponentModule } from './new-character-detail/new-character-detail.module';
 import {
   CharacterService,
@@ -43,7 +44,8 @@ import { AppRoutingModule } from './app-routing.module';
     CharacterDetailModule,
     CharactersModule,
     DashboardModule,
-    NewCharacterDetailComponentModule
+    NewCharacterDetailComponentModule,
+    HomeModule
     // InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [

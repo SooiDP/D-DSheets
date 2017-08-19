@@ -8,8 +8,7 @@ import 'rxjs/add/operator/switchMap';
 
 @Component({
     selector: 'new-character-detail',
-    templateUrl: './new-character-detail.component.html',
-    styleUrls: ['../character-detail/character-detail.component.css']
+    templateUrl: './new-character-detail.component.html'
 })
 
 export class NewCharacterDetailComponent {

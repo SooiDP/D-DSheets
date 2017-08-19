@@ -7,12 +7,17 @@ import { NewCharacterDetailComponent } from './new-character-detail/new-characte
 import { AuthComponent } from './auth/auth.component';
 import { NoAuthGuard } from './auth/no-auth-guard.service';
 import { AuthMenuComponent } from './auth-menu/auth-menu.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
     {
         path: '',
-        redirectTo: '/auth',
+        redirectTo: '/home',
         pathMatch: 'full'
+    },
+    {
+        path: 'home',
+        component: HomeComponent
     },
     {
         path: 'dashboard',
@@ -41,6 +46,11 @@ const routes: Routes = [
     {
         path: 'auth/register',
         component: AuthComponent
+    },
+    {
+        path: '**',
+        redirectTo: '/auth',
+        pathMatch: 'full'
     }
 ];
 

@@ -7,8 +7,7 @@ import { AppComponent } from '../app.component';
 @Component({
   selector: 'my-characters',
   providers: [],
-  templateUrl: './characters.component.html',
-  styleUrls: ['./characters.component.css']
+  templateUrl: './characters.component.html'
 })
 
 export class CharactersComponent {

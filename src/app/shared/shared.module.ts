@@ -6,6 +6,7 @@ import { RouterModule } from '@angular/router';
 
 import { ListErrorsComponent } from './list-errors.component';
 import { ShowAuthedDirective } from './show-authed.directive';
+import { UnderlineBoldDirective } from './underline-bold.directive';
 
 @NgModule({
   imports: [
@@ -17,7 +18,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
   ],
   declarations: [
     ListErrorsComponent,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    UnderlineBoldDirective
   ],
   exports: [
     CommonModule,
@@ -26,7 +28,8 @@ import { ShowAuthedDirective } from './show-authed.directive';
     HttpModule,
     ListErrorsComponent,
     RouterModule,
-    ShowAuthedDirective
+    ShowAuthedDirective,
+    UnderlineBoldDirective
   ]
 })
 export class SharedModule {}
