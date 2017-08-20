@@ -29,7 +29,7 @@ export class CharactersComponent {
   }
 
   gotoDetail(): void {
-    this.router.navigate(['/detail', this.selectedCharacter.id]);
+    this.router.navigate(['/detail', this.selectedCharacter.slug]);
   }
 
   add(): void {
@@ -38,7 +38,7 @@ export class CharactersComponent {
 
   delete(character: Character): void {
     this.characterService
-      .delete(character.id)
+      .delete(character.slug)
       .then(() => {
         this.characters = this.characters.filter(c => c!== character);
         if (this.selectedCharacter === character) { this.selectedCharacter = null; }

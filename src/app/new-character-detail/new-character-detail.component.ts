@@ -1,31 +1,43 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, ParamMap } from '@angular/router';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { Character, CharacterService } from '../shared';
 import { Location } from '@angular/common';
 
-import { CharacterService, Character } from '../shared';
-
-import 'rxjs/add/operator/switchMap';
-
 @Component({
-    selector: 'new-character-detail',
+    selector: 'new-character-page',
     templateUrl: './new-character-detail.component.html'
 })
-
 export class NewCharacterDetailComponent {
-    character: Character;
+    newCharacterForm: FormGroup;
+    errors: Object = {};
+    isSubmitting = false;
+    character: Character = new Character();
 
     constructor(
+        private router: Router,
         private characterService: CharacterService,
-        private route: ActivatedRoute,
+        private fb: FormBuilder,
         private location: Location
-    ) { }
-
-    goBack(): void {
-        this.location.back();
+    ) {
+        // create form group using the form builder
+        this.newCharacterForm = this.fb.group({
+            race: '',
+            subRace: '',
+            class: '',
+            name: '',
+            level: ''
+        });
     }
 
-    save(character): void {
+    submitForm() {
+        this.isSubmitting = true;
+
         this.characterService.create(this.character)
             .then(() => this.goBack());
+    }
+    goBack(): void {
+        this.location.back();
     }
 }

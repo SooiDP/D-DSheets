@@ -15,40 +15,54 @@ export class CharacterService {
     ) { }
 
     getCharacters(): Promise<Character[]> {
-        return this.apiService.get('/characters/')
-            .toPromise()
-            .then(response => response.json().data as Character[])
-            .catch(this.handleError);
+        return this.apiService.get('/characters/characters').toPromise().then(res => res.characters);
     }
-
     private handleError(error: any): Promise<any> {
         console.error('An error happened', error);
         return Promise.reject(error.message || error);
     }
-    getCharacter(slug): Promise<Character> {
-        return this.apiService.get('/characters/' + slug)
+    getCharacter(slug: string): Promise<Character> {
+        return this.apiService.get('/characters/characters/' + slug)
             .toPromise()
-            .then(response => response.json().data as Character)
-            .catch(this.handleError);
-    }
-    update(character): Promise<Character> {
-        return this.apiService
-            .put('/characters/' + character.slug, { character: character })
-            .toPromise()
-            .then(() => character)
-            .catch(this.handleError);
-    }
-    create(character): Promise<Character> {
-        return this.apiService
-            .post('/characters/', { character: character })
-            .toPromise()
-            .then(res => res.json().data as Character)
+            .then(response => {
+                return this.resToChar(response.character);
+            })
             .catch(this.handleError)
     }
-    delete(slug) {
-        return this.apiService.delete('/characters/' + slug)
+    update(character: Character): Promise<Character> {
+        return this.apiService
+            .put('/characters/characters/' + character.slug, { "character": character.toJSON() })
+            .toPromise()
+            .then(response => {
+                return this.resToChar(response.character);
+            })
+            .catch(this.handleError)
+    }
+
+    create(character: Character): Promise<Character> {
+        console.log("creat methodde gehaald");
+        return this.apiService
+            .post('/characters/characters', { "character": character.toJSON() })
+            .toPromise()
+            .then(res => { return this.resToChar(res.character) })
+            .catch(this.handleError)
+    }
+
+    delete(slug: string) {
+        return this.apiService.delete('/characters/characters/' + slug)
             .toPromise()
             .then(() => null)
             .catch(this.handleError);
+    }
+    private resToChar(resChar): Character {
+        let character = new Character();
+
+        character.class = resChar.class;
+        character.level = resChar.level;
+        character.name = resChar.name;
+        character.race = resChar.race;
+        character.subRace = resChar.subRace;
+
+        return character;
     }
 }

@@ -1,25 +1,38 @@
-<div>
-    <h2>New Character Creation</h2>
-    <div>
-        <label>race: </label>
-        <input #race placeholder="race">
+<div class="new-character-detail-page">
+    <div class="container page">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xs-12">
+
+                <h1 class="text-xs-center">Your Character</h1>
+
+                <form [formGroup]="newCharacterForm" (ngSubmit)="submitForm()">
+                    <fieldset [disabled]="isSubmitting">
+
+                        <fieldset class="form-group">
+                            <input class="form-control form-control-lg" type="text" placeholder="race" formControlName="race" />
+                        </fieldset>
+
+                        <fieldset class="form-group">
+                            <input class="form-control form-control-lg" type="text" placeholder="sub-race" formControlName="subRace" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input class="form-control form-control-lg" type="text" placeholder="class" formControlName="class" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input class="form-control form-control-lg" type="text" placeholder="name" formControlName="name" />
+                        </fieldset>
+                        <fieldset class="form-group">
+                            <input class="form-control form-control-lg" type="number" max="20" placeholder="level" formControlName="level" />
+                        </fieldset>
+
+                        <button class="btn btn-lg btn-primary pull-xs-right" type="submit">
+                        Create a character
+                      </button>
+
+                    </fieldset>
+                </form>
+
+            </div>
+        </div>
     </div>
-    <div>
-        <label>subrace: </label>
-        <input #subRace placeholder="sub race">
-    </div>
-    <div>
-        <label>class: </label>
-        <input #charClass placeholder="class">
-    </div>
-    <div>
-        <label>name: </label>
-        <input #name placeholder="name">
-    </div>
-    <div>
-        <label>level: </label>
-        <input #level placeholder="level">
-    </div>
-    <button (click)="goBack()">Back</button>
-    <button (click)="save(race.value, subRace.value, charClass.value, name.value, level.value)">Create</button>
 </div>

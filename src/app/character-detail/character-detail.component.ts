@@ -11,19 +11,22 @@ import 'rxjs/add/operator/switchMap';
     templateUrl: './character-detail.component.html'
 })
 
-export class CharacterDetailComponent implements OnInit {
+export class CharacterDetailComponent /*implements OnInit*/ {
     character: Character;
 
-    constructor( 
+    constructor(
         private characterService: CharacterService,
         private route: ActivatedRoute,
         private location: Location
     ) { }
 
     ngOnInit(): void {
-        this.route.paramMap
-            .switchMap((params: ParamMap) => this.characterService.getCharacter(+params.get('id')))
-            .subscribe(character => this.character = character);
+        this.route.url.subscribe(data => {
+            var slug = data[data.length - 1].path;
+            this.route.paramMap
+                .switchMap((params: ParamMap) => this.characterService.getCharacter(slug))
+                .subscribe(character => this.character = character);
+        });
     }
 
     goBack(): void {
