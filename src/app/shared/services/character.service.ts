@@ -43,14 +43,14 @@ export class CharacterService {
         console.log(character.name + "  test 2");
         console.log(character.toJSON())
         return this.apiService
-            .post('/characters', {"character": character.toJSON()})
+            .post('/characters/characters', {"character": character.toJSON()})
             .toPromise()
             .then(res => { return this.resToChar(res.character) })
             .catch(this.handleError)
     }
 
     delete(slug: string) {
-        return this.apiService.delete('/characters/' + slug)
+        return this.apiService.delete('/characters/characters/' + slug)
             .toPromise()
             .then(() => null)
             .catch(this.handleError);
