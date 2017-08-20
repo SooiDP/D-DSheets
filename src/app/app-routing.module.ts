@@ -8,6 +8,7 @@ import { AuthComponent } from './auth/auth.component';
 import { NoAuthGuard } from './auth/no-auth-guard.service';
 import { AuthMenuComponent } from './auth-menu/auth-menu.component';
 import { HomeComponent } from './home/home.component';
+import { ProfileComponent } from './profile/profile.component';
 
 const routes: Routes = [
     {
@@ -48,8 +49,12 @@ const routes: Routes = [
         component: AuthComponent
     },
     {
+        path: 'profile',
+        component: ProfileComponent
+    },
+    {
         path: '**',
-        redirectTo: '/auth',
+        redirectTo: '/home',
         pathMatch: 'full'
     }
 ];

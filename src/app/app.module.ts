@@ -11,6 +11,7 @@ import { CharacterDetailModule } from './character-detail/character-detail.modul
 import { CharactersModule } from './characters/characters.module';
 import { DashboardModule } from './dashboard/dashboard.module';
 import { HomeModule } from './home/home.module';
+import { ProfileModule } from './profile/profile.module';
 import { NewCharacterDetailComponentModule } from './new-character-detail/new-character-detail.module';
 import {
   CharacterService,
@@ -18,7 +19,8 @@ import {
   AuthGuard,
   ApiService,
   JwtService,
-  UserService
+  UserService,
+  NavigationComponent
 } from './shared';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -30,7 +32,8 @@ import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -45,7 +48,8 @@ import { AppRoutingModule } from './app-routing.module';
     CharactersModule,
     DashboardModule,
     NewCharacterDetailComponentModule,
-    HomeModule
+    HomeModule,
+    ProfileModule
     // InMemoryWebApiModule.forRoot(InMemoryDataService)
   ],
   providers: [

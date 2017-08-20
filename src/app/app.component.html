@@ -1,25 +1,4 @@
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid">
-        <ul class="nav navbar-nav">
-            <li class="active"><a routerLink="/home">Home</a></li>
-            <li class="active"><a routerLink="/dashboard">Dashboard</a></li>
-            <li class="active"><a routerLink="/characters">Characters</a></li>
-        </ul>
-        <ul class="nav navbar-nav navbar-right">
-            <li class="dropdown active"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Login or Sign up<span class="caret"></span></a>
-                <ul class="dropdown-menu">
-                    <li><a routerLink="/auth/login">Login</a></li>
-                    <li><a routerLink="/auth/register">Sign up</a></li>
-                </ul>
-            </li>
-        </ul>
-    </div>
-</nav>
-<div style="text-align:center">
-    <h1 underlineBold>
-        Welcome to {{title}}!
-    </h1>
-</div>
+<top-nav></top-nav>
 <div class="container">
     <router-outlet></router-outlet>
 </div>

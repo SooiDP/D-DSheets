@@ -24,8 +24,8 @@ export class NewCharacterDetailComponent {
         this.location.back();
     }
 
-    save(race: string, subRace: string, charClass: string, name: string, level: number): void {
-        this.characterService.create(race, subRace, charClass, name, level)
+    save(character): void {
+        this.characterService.create(this.character)
             .then(() => this.goBack());
     }
 }
