@@ -40,9 +40,10 @@ export class CharacterService {
     }
 
     create(character: Character): Promise<Character> {
-        console.log("creat methodde gehaald");
+        console.log(character.name + "  test 2");
+        console.log(character.toJSON())
         return this.apiService
-            .post('/characters/characters', { "character": character.toJSON() })
+            .post('/characters/characters', {"character": character.toJSON()})
             .toPromise()
             .then(res => { return this.resToChar(res.character) })
             .catch(this.handleError)
@@ -55,6 +56,7 @@ export class CharacterService {
             .catch(this.handleError);
     }
     private resToChar(resChar): Character {
+
         let character = new Character();
 
         character.class = resChar.class;
@@ -62,6 +64,8 @@ export class CharacterService {
         character.name = resChar.name;
         character.race = resChar.race;
         character.subRace = resChar.subRace;
+
+        console.log(character.name + 'restochar')
 
         return character;
     }

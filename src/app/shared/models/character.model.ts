@@ -1,4 +1,4 @@
-import { User } from './user.model'; 
+import { User } from './user.model';
 
 export class Character {
     slug: string;
@@ -8,15 +8,16 @@ export class Character {
     name: string;
     level: number;
 
-    
+
 
     public toJSON(): Object {
         console.log("json gehaald");
+        console.log(this.name + ' json test')
         return {
             "race": this.race,
             "subRace": this.subRace,
-            "class": this.class,
             "name": this.name,
+            "class": this.class,
             "level": this.level
         }
     }

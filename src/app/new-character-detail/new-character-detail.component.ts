@@ -29,6 +29,7 @@ export class NewCharacterDetailComponent {
             name: '',
             level: ''
         });
+        this.newCharacterForm.valueChanges.subscribe(values => this.updateCharacter(values));
     }
 
     submitForm() {
@@ -40,4 +41,8 @@ export class NewCharacterDetailComponent {
     goBack(): void {
         this.location.back();
     }
+
+    updateCharacter(values: Object) {
+        (<any>Object).assign(this.character, values);
+      }
 }
