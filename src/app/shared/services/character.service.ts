@@ -15,14 +15,14 @@ export class CharacterService {
     ) { }
 
     getCharacters(): Promise<Character[]> {
-        return this.apiService.get('/characters/characters').toPromise().then(res => res.characters);
+        return this.apiService.get('/characters').toPromise().then(res => res.characters);
     }
     private handleError(error: any): Promise<any> {
         console.error('An error happened', error);
         return Promise.reject(error.message || error);
     }
     getCharacter(slug: string): Promise<Character> {
-        return this.apiService.get('/characters/characters/' + slug)
+        return this.apiService.get('/characters/' + slug)
             .toPromise()
             .then(response => {
                 return this.resToChar(response.character);
@@ -31,7 +31,7 @@ export class CharacterService {
     }
     update(character: Character): Promise<Character> {
         return this.apiService
-            .put('/characters/characters/' + character.slug, { "character": character.toJSON() })
+            .put('/characters/' + character.slug, { "character": character.toJSON() })
             .toPromise()
             .then(response => {
                 return this.resToChar(response.character);
@@ -43,14 +43,14 @@ export class CharacterService {
         console.log(character.name + "  test 2");
         console.log(character.toJSON())
         return this.apiService
-            .post('/characters/characters', {"character": character.toJSON()})
+            .post('/characters', {"character": character.toJSON()})
             .toPromise()
             .then(res => { return this.resToChar(res.character) })
             .catch(this.handleError)
     }
 
     delete(slug: string) {
-        return this.apiService.delete('/characters/characters/' + slug)
+        return this.apiService.delete('/characters/' + slug)
             .toPromise()
             .then(() => null)
             .catch(this.handleError);
